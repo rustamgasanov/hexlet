@@ -3,5 +3,8 @@
 # Example: "awbxcydz" == solution("abcd", "wxyz")
 
 def solution(s1, s2)
-  s1.split('').zip(s2.split('')).flatten.join
+  res = s1.split('').zip(s2.split('')).flatten.join
+  s2.length > s1.length ? res + s2[-(s2.length - s1.length)..-1] : res
 end
+
+solution("abcd", "wxyz")
