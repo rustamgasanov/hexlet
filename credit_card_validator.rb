@@ -11,10 +11,14 @@
 
 def solution(cc)
   op = cc.length.even? ? :even? : :odd?
-  s1 = (0..cc.size - 1).map { |i| cc[i] if i.send(op) }.compact.map(&:to_i)
-  s2 = s1.map { |x| (2 * x > 9) ? (2 * x - 9) : (2 * x) }
-  p s2.reduce(:+)
-  s2.reduce(:+) % 10 == 0
+  (0...cc.size).map do |i|
+    x = cc[i].to_i
+    if i.send(op)
+      (2 * x > 9) ? (2 * x - 9) : (2 * x)
+    else
+      x
+    end
+  end.reduce(:+) % 10 == 0
 end
 
 solution("4408041234567893")
