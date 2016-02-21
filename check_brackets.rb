@@ -2,14 +2,19 @@
 #
 # Example: false == solution("( {) } ")
 
-def solution(arr)
-  arr = arr.gsub(' ', '').split('')
-  return false if arr.size % 2 != 0
-
+def solution(s)
   map  = { '(' => ')', '[' => ']', '{' => '}', '<' => '>' }
-
-  loop do
-    break false if map[arr.shift] != arr.pop
-    break true if arr.size == 0
+  s = s.gsub(/[^()\[\]{}<>]/, '').split('')
+  return false if s.size % 2 != 0
+  arr = []
+  (0...s.size).each do |i|
+    if !arr.last.nil? && arr.last == s[i]
+      arr.pop
+    else
+      arr.push(map[s[i]])
+    end
   end
+  arr.empty?
 end
+
+p solution("( {) } ")
