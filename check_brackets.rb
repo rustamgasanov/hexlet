@@ -18,3 +18,5 @@ def solution(s)
 end
 
 p solution("( {) } ")
+p solution(") } ")
+p solution("( { ")
