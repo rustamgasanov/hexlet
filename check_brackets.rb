@@ -16,7 +16,3 @@ def solution(s)
   end
   arr.empty?
 end
-
-p solution("( {) } ")
-p solution(") } ")
-p solution("( { ")
