@@ -3,11 +3,10 @@
 # Example: 16 == solution(6)
 
 def solution(n)
-  arr = [n]
-  curr = n
+  max, curr = n, n
   while curr != 1
     curr = (curr.even?) ? (curr / 2) : (3 * curr + 1)
-    arr << curr
+    max = curr if max < curr
   end
-  arr.max
+  max
 end
